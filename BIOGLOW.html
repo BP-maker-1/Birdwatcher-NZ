@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neural Nestwork NZ | FLL BIOGLOW Innovation Project</title>
+  <link rel="stylesheet" href="BIOGLOW.css">
+  <link href="https://googleapis.com" rel="stylesheet">
+  <!-- <link rel="icon" href="BIOGLOW/media/favicon.svg" type="image/svg+xml"> -->
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <span class="season-tag">FLL BIOGLOW™ 2026–27</span>
+        <a href="#" class="brand-name">Birdwatcher Project NZ</a>
+      </div>
+
+      <nav class="nav-links">
+        <a href="#about">About the Project</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#sightings">Sightings Log</a>
+      </nav>
+
+      <button class="upload-trigger-btn" id="openUploadBtn">
+        + Upload Sighting
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero / Project Overview Section -->
+    <section class="hero-section" id="about">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Aotearoa Biodiversity &amp; Conservation</p>
+          <h1>Protecting native birds with smart trail cameras.</h1>
+          <p class="lead">
+            New Zealand’s native bird species face constant threats from introduced predators and habitat loss. 
+            Our FLL BIOGLOW Innovation Project uses our own trained AI to automatically capture and sort native bird sightings from backyard and sanctuary trail cameras, helping conservationists track population recovery without disturbing wildlife.
+          </p>
+          <div class="hero-actions">
+            <a href="#sightings" class="btn-secondary">Browse Field Sightings</a>
+            <a href="#how-it-works" class="btn-text">Read Research Brief →</a>
+          </div>
+        </div>
+
+        <div class="hero-fact-card">
+          <h3>Project Snapshot</h3>
+          <ul class="fact-list">
+            <li>
+              <span class="fact-label">Focus Area</span>
+              <span class="fact-value">Native New Zealand Endangered Biodiversity</span>
+            </li>
+            <li>
+              <span class="fact-label">Target Species</span>
+              <span class="fact-value">Tūī, Kākāpō, Kererū, Kiwi, Pīwakawaka</span>
+            </li>
+            <li>
+              <span class="fact-label">Detection Method</span>
+              <span class="fact-value">Our own specialised AI Image &amp; Video Recognition</span>
+            </li>
+            <li>
+              <span class="fact-label">Data Contribution</span>
+              <span class="fact-value">Orokonui, University of Otago</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Information Section: How It Works -->
+    <section class="info-section" id="how-it-works">
+      <div class="container">
+        <div class="section-heading">
+          <h2>How Our Research Works</h2>
+          <p>Connecting local communities, trail cameras, and conservation groups across New Zealand.</p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <span class="step-num">01</span>
+            <h3>Capture local Birds</h3>
+            <p>Trail camera footage or phone photos and short video clips of birds visiting feeders, sanctuaries, and native bush tracks.</p>
+          </div>
+
+          <div class="step-card">
+            <span class="step-num">02</span>
+            <h3>Automatic AI Species Detection</h3>
+            <p>Our in house trained AI model identifies 400 different species of New Zealand native birds with 90% accuracy.</p>
+          </div>
+
+          <div class="step-card">
+            <span class="step-num">03</span>
+            <h3>Shared Conservation Log</h3>
+            <p>We share our data and work with conservationists, the University of Otago and Orokonui sancturaries.</p>
+          </div>
+        </div>
+		  <br>
+		  <div class="section-footer">
+		  <p>Our specialised AI trained in house recognises any species of birds found in New Zealand. We trained it on 100 classes of 400 birds each and 1 contingency for false positives, which contains 1,200 pictures of rocks, plants, and insects, which we sourced from creative comman lisence images from iNaturalist. Our AI model recognises the species, outlines it and gives a percentage on how confident that it is correct. Our model has been tested to over 90% accuracy over many trials. We use trail camera footage in seperate locations to track birds, taking the manual labour out of manually tracking, the only solution at the moment. We found that the AI works best when the bird is relatively unobscured and large in the frame. It gets less reliable when this is not true. </p>
+		  </div>
+      </div>
+    </section>
+
+    <!-- Sightings Archive Section -->
+    <section class="archive-section" id="sightings">
+      <div class="container">
+        <div class="archive-header">
+          <div>
+            <h2>Verified Sightings Archive</h2>
+            <p class="archive-sub">Inspect recent camera-trap captures or upload your own photo or video.</p>
+          </div>
+
+          <div class="filter-bar" id="filterBar">
+            <button class="filter-btn active" data-filter="all">All Birds</button>
+			<button class="filter-btn" data-filter="Sparrow">Sparrow</button>
+            <button class="filter-btn" data-filter="Tūī">Tūī</button>
+            <button class="filter-btn" data-filter="Kākāpō">Kākāpō</button>
+            <button class="filter-btn" data-filter="Kererū">Kererū</button>
+            <button class="filter-btn" data-filter="Kiwi">Kiwi</button>
+            <button class="filter-btn" data-filter="Pīwakawaka">Pīwakawaka</button>
+          </div>
+        </div>
+
+        <div class="sightings-grid" id="sightingsGrid">
+          <!-- Cards populated via script.js -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p><strong>Birdwatcher Project NZ</strong> — FIRST® LEGO® League BIOGLOW™ Innovation Project</p>
+      <p class="footer-note">Built for biodiversity research &amp; community science in Aotearoa New Zealand.</p>
+    </div>
+  </footer>
+
+  <!-- Upload Modal (Triggered from Top-Right Button) -->
+  <div id="uploadModal" class="modal-backdrop hidden">
+    <div class="modal-box upload-modal-box">
+      <div class="modal-header">
+        <h3>Upload Bird Photo or Video</h3>
+        <button class="close-btn" id="closeUploadBtn" aria-label="Close">&times;</button>
+      </div>
+
+      <form id="uploadForm" class="upload-form">
+        <div class="drop-zone" id="dropZone">
+          <input type="file" id="mediaInput" accept="image/*,video/*" required hidden>
+          <div id="dropPrompt">
+            <p class="drop-title">Drop your photo or video here, or <span>browse files</span></p>
+            <p class="drop-hint">Accepts JPG, PNG, MP4, or WEBM</p>
+          </div>
+          <div id="previewBox" class="preview-box hidden"></div>
+        </div>
+
+        <div class="form-row">
+          <label for="birdSpecies">Species Identification</label>
+          <select id="birdSpecies">
+            <option value="Auto-Detect">Let AI Identify Species Automatically</option>
+			<option value="Sparrow (Passer domesticus)">House Sparrow (Introduced)</option>
+            <option value="Tūī (Prosthemadera novaeseelandiae)">Tūī</option>
+            <option value="Kākāpō (Strigops habroptilus)">Kākāpō</option>
+            <option value="Kererū (Hemiphaga novaeseelandiae)">Kererū</option>
+            <option value="Pīwakawaka (Rhipidura fuliginosa)">Pīwakawaka (Fantail)</option>
+            <option value="Kiwi Tokoeka (Apteryx australis)">Kiwi Tokoeka</option>
+            <option value="Kōtare (Todiramphus sanctus)">Kōtare (Kingfisher)</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label for="locationInput">Location / Reserve</label>
+          <input type="text" id="locationInput" placeholder="e.g., Orokonui Ecosanctuary, Dunedin" required>
+        </div>
+
+        <div class="form-row">
+          <label for="notesInput">Field Observations</label>
+          <textarea id="notesInput" rows="2" placeholder="e.g., Feeding on kōwhai flowers near the ridge track"></textarea>
+        </div>
+
+        <div id="scanProgress" class="scan-progress hidden">
+          <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
+          <span id="progressLabel">Analysing plumage &amp; silhouette...</span>
+        </div>
+
+        <div class="modal-footer-btns">
+          <button type="button" class="btn-secondary" id="cancelUploadBtn">Cancel</button>
+          <button type="submit" class="upload-trigger-btn">Run AI Check &amp; Post</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+     <!-- Lightbox Modal for Viewing Full Sighting -->
+  <div id="viewModal" class="modal-backdrop hidden">
+    <button class="nav-arrow prev-arrow" id="prevSightingBtn" aria-label="Previous sighting">&#8249;</button>
+
+    <div class="modal-box view-modal-box">
+      <button class="close-btn view-close" id="closeViewBtn" aria-label="Close">&times;</button>
+      <div id="viewMediaArea" class="view-media-area"></div>
+      <div class="view-details">
+        <div>
+          <div class="view-top">
+            <h3 id="viewTitle">Bird Species</h3>
+            <span class="match-pill" id="viewConfidence">90.0% Match</span>
+          </div>
+          <p class="view-meta" id="viewMeta">Scientific Name</p>
+          <div class="view-notes" id="viewNotes">Observation details</div>
+        </div>
+        <p class="view-counter" id="viewCounter">Sighting 1 of 5</p>
+      </div>
+    </div>
+
+    <button class="nav-arrow next-arrow" id="nextSightingBtn" aria-label="Next sighting">&#8250;</button>
+  </div>
+
+
+  <script src="BIOGLOW.js"></script>
+</body>
+</html>
+
